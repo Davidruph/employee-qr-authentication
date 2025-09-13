@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Employee QR System') }}</title>
-    <link rel="icon" href="{{ asset('logo.svg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('logo.png') }}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -15,7 +15,7 @@
         <header class="bg-white shadow-sm">
             <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-2">
-                    <img src="{{ asset('logo.svg') }}" alt="Logo" class="h-10 w-10">
+                    <img src="{{ asset('logo.png') }}" alt="Logo" class="h-14 w-14">
                     <span class="font-bold text-xl text-black">{{ config('app.name', 'Employee QR System') }}</span>
                 </div>
 

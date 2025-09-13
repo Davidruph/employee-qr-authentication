@@ -83,6 +83,38 @@
                             </div>
                         </div>
 
+                        <div class="flex flex-col lg:flex-row gap-3 w-full mb-3">
+                            <div class="w-full">
+                                <x-input-label for="work_status" :value="__('Work Status')" />
+                                <x-select id="work_status" name="work_status" :options="[
+                                    'Citizen / Permanent Resident' => 'Citizen / Permanent Resident',
+                                    'Work Visa' => 'Work Visa',
+                                    'Student Visa' => 'Student Visa',
+                                    'Dependent Visa' => 'Dependent Visa',
+                                    'Temporary / Contract Worker' => 'Temporary / Contract Worker',
+                                    'Unemployed / Not Working' => 'Unemployed / Not Working',
+                                    'Other' => 'Other',
+                                ]" :selected="old('work_status', $employee->work_status)" />
+                                <x-input-error :messages="$errors->get('work_status')" class="mt-2" />
+                            </div>
+
+                            <div class="w-full">
+                                <x-input-label for="government_id_number" :value="__('Government ID Number')" />
+                                <x-text-input id="government_id_number" class="block mt-1 w-full" type="text"
+                                    name="government_id_number" :value="old('government_id_number', $employee->government_id_number)" autocomplete="off" />
+                                <x-input-error :messages="$errors->get('government_id_number')" class="mt-2" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row gap-3 w-full mb-3">
+                            <div class="w-full">
+                                <x-input-label for="address" :value="__('Address')" />
+                                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
+                                    :value="old('address', $employee->address)" autocomplete="off" />
+                                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                            </div>
+                        </div>
+
                         <div class="flex w-full mb-3">
                             <div class="w-full">
                                 <x-input-label for="photo" :value="__('Photo')" />
@@ -98,9 +130,9 @@
 
                         <div class="flex flex-col lg:flex-row gap-3 w-full">
                             <div class="w-full">
-                                <x-input-label for="address" :value="__('Address')" />
-                                <x-textarea id="address" name="address" rows="3" :value="old('address', $employee->address)" />
-                                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                                <x-input-label for="notes" :value="__('Notes')" />
+                                <x-textarea id="notes" name="notes" rows="3" :value="old('notes', $employee->notes)" />
+                                <x-input-error :messages="$errors->get('notes')" class="mt-2" />
                             </div>
                         </div>
 

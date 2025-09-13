@@ -43,6 +43,9 @@ class EmployeeController extends Controller
             'status' => ['nullable', 'in:Active,Inactive'],
             'photo' => ['nullable', 'image', 'max:2048'],
             'employee_id' => ['nullable', 'string', 'max:36', 'unique:' . Employee::class],
+            'notes' => ['nullable', 'string', 'max:1000'],
+            'government_id_number' => ['nullable', 'string', 'max:255'],
+            'work_status' => ['nullable', 'string', 'max:20'],
         ]);
 
         $employee = new Employee();
@@ -56,6 +59,9 @@ class EmployeeController extends Controller
         $employee->position = $request->position;
         $employee->department = $request->department;
         $employee->employee_id = $request->employee_id;
+        $employee->government_id_number = $request->government_id_number;
+        $employee->work_status = $request->work_status;
+        $employee->notes = $request->notes;
         $employee->status = 'Active';
 
         if ($request->hasFile('photo')) {
@@ -89,6 +95,9 @@ class EmployeeController extends Controller
             'status' => ['nullable', 'in:Active,Inactive,Suspended,Leave,Terminated'],
             'photo' => ['nullable', 'image', 'max:2048'],
             'employee_id' => ['nullable', 'string', 'max:36', 'unique:employees,employee_id,' . $employee->id],
+            'notes' => ['nullable', 'string', 'max:1000'],
+            'government_id_number' => ['nullable', 'string', 'max:255'],
+            'work_status' => ['nullable', 'string', 'max:20'],
         ]);
 
         $employee->full_name = $request->full_name;
@@ -101,6 +110,9 @@ class EmployeeController extends Controller
         $employee->department = $request->department;
         $employee->employee_id = $request->employee_id;
         $employee->status = $request->status;
+        $employee->government_id_number = $request->government_id_number;
+        $employee->work_status = $request->work_status;
+        $employee->notes = $request->notes;
 
         if ($request->hasFile('photo')) {
             $employee->photo = $request->file('photo')->store('employees', 'public');

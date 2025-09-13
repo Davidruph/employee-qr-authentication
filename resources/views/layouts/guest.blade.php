@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="icon" href="{{ asset('logo.svg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('logo.png') }}" type="image/x-icon">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -21,7 +21,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <a href="/">
-                <img src="{{ asset('logo.svg') }}" alt="Logo" class="w-20 h-20">
+                <img src="{{ asset('logo.png') }}" alt="Logo" class="w-24 h-24">
             </a>
         </div>
 
