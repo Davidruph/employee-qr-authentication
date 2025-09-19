@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2025 at 04:38 PM
+-- Generation Time: Sep 19, 2025 at 11:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,14 +71,6 @@ CREATE TABLE `employees` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`id`, `uuid`, `government_id_number`, `work_status`, `notes`, `employee_id`, `full_name`, `email`, `phone`, `date_of_birth`, `hire_date`, `address`, `photo`, `position`, `department`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'bf3945e1-18bc-4aa2-9490-1c33dd3ffa3d', NULL, NULL, NULL, '82AUUWB', 'Irma Gallegos', 'codiw@mailinator.com', '+1 (844) 423-8564', '1988-06-13', '2016-08-07', 'Quia sit officia eu', 'employees/lxSaWDy4S4QnZlVMFcELl1dVkZjnL5CEO5w00Exl.jpg', 'Veniam ullamco labo', 'HR', 'Active', '2025-09-08 13:17:11', '2025-09-08 13:48:11'),
-(2, '87f3641e-a09c-40a2-bc91-5021fe08e00f', '87h4g737363', 'Work Visa', 'short notes about the employee', '893836ndjd', 'John Doe', 'doe@gmail.com', '+23744638374', '2025-09-07', '2025-09-11', 'Abuja Suleja', 'employees/Z8mI6uvZ7U1XYM9EXbjcFu0urKxl6VbOxVac3lNd.jpg', 'IT Specialist', 'IT', 'Active', '2025-09-11 12:57:20', '2025-09-11 13:25:08');
 
 -- --------------------------------------------------------
 
@@ -188,7 +180,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('LBYagRMGOhi1GYw8FRZdUnPwcO0mryenXHHovuVS', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWmhCYlZyOGF0cjgyV2FtZHJnZk9sZzQyU3Q1RHliUFhVUkFJcjFsZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1757601477);
+('MYiMqS7SK99OSxH8D7C2FSeqvrTzNqPvUfQcxr8y', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQkk3R0h6dGp6MUlnbEVGT1dMWm5MQXpDM0tja0d2R1JRSjdUUjBjNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fX0=', 1757602670),
+('OjiTjcQnMKj7wrd1EKYkufTA0dQeseNLBfvYzQ7M', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQk50MEU1UUZGWWlCaUNPWDAxZTFoZHBvODVnUUZvcFh4ODE2cmFoYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1757717473);
 
 -- --------------------------------------------------------
 
@@ -208,13 +201,6 @@ CREATE TABLE `users` (
   `role` varchar(255) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'David junior', 'juniord.dj88@gmail.com', NULL, '$2y$12$dszSb2V6QLs9JrS6noffouPvTznstLo48rKi8Y.Ig58nsd4.HsZvm', NULL, '2025-09-08 11:18:00', '2025-09-08 11:18:00', 'admin');
-
 -- --------------------------------------------------------
 
 --
@@ -230,22 +216,6 @@ CREATE TABLE `verification_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `verification_logs`
---
-
-INSERT INTO `verification_logs` (`id`, `employee_id`, `ip_address`, `user_agent`, `scanned_at`, `created_at`, `updated_at`) VALUES
-(1, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36', '2025-09-09 11:02:20', '2025-09-09 10:02:20', '2025-09-09 10:02:20'),
-(2, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36', '2025-09-09 12:04:25', '2025-09-09 11:04:25', '2025-09-09 11:04:25'),
-(3, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:00:22', '2025-09-11 13:00:22', '2025-09-11 13:00:22'),
-(4, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:25:41', '2025-09-11 13:25:41', '2025-09-11 13:25:41'),
-(5, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:25:59', '2025-09-11 13:25:59', '2025-09-11 13:25:59'),
-(6, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:27:45', '2025-09-11 13:27:45', '2025-09-11 13:27:45'),
-(7, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:29:15', '2025-09-11 13:29:15', '2025-09-11 13:29:15'),
-(8, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:29:38', '2025-09-11 13:29:38', '2025-09-11 13:29:38'),
-(9, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:29:49', '2025-09-11 13:29:49', '2025-09-11 13:29:49'),
-(10, 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-09-11 14:30:06', '2025-09-11 13:30:06', '2025-09-11 13:30:06');
 
 --
 -- Indexes for dumped tables
@@ -358,13 +328,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `verification_logs`
 --
 ALTER TABLE `verification_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
