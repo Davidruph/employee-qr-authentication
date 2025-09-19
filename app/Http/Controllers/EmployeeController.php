@@ -45,7 +45,7 @@ class EmployeeController extends Controller
             'employee_id' => ['nullable', 'string', 'max:36', 'unique:' . Employee::class],
             'notes' => ['nullable', 'string', 'max:1000'],
             'government_id_number' => ['nullable', 'string', 'max:255'],
-            'work_status' => ['nullable', 'string', 'max:20'],
+            'work_status' => ['nullable', 'string', 'max:255'],
         ]);
 
         $employee = new Employee();
@@ -65,7 +65,18 @@ class EmployeeController extends Controller
         $employee->status = 'Active';
 
         if ($request->hasFile('photo')) {
-            $employee->photo = $request->file('photo')->store('employees', 'public');
+            $image = $request->file('photo');
+            $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('storage/employees');
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            $image->move($destinationPath, $filename);
+
+            // Save relative path so you can call asset('storage/employees/...') in Blade
+            $employee->photo = 'storage/employees/' . $filename;
         }
 
         $employee->save();
@@ -115,7 +126,21 @@ class EmployeeController extends Controller
         $employee->notes = $request->notes;
 
         if ($request->hasFile('photo')) {
-            $employee->photo = $request->file('photo')->store('employees', 'public');
+            if ($employee->photo && file_exists(public_path($employee->photo))) {
+                unlink(public_path($employee->photo));
+            }
+
+            $image = $request->file('photo');
+            $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('storage/employees');
+
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            $image->move($destinationPath, $filename);
+
+            $employee->photo = 'storage/employees/' . $filename;
         }
 
         $employee->save();

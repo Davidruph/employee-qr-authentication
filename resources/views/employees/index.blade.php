@@ -41,7 +41,7 @@
                                     @foreach ($employees as $employee)
                                         <tr class="hover:bg-gray-50">
                                             <td class="px-4 py-2 border-b">
-                                                <img src="{{ asset('storage/' . $employee->photo) }}"
+                                                <img src="{{ asset($employee->photo) }}"
                                                     class="w-12 h-12 object-cover rounded-full" alt="Employee Photo">
                                             </td>
                                             <td class="px-4 py-2 border-b">

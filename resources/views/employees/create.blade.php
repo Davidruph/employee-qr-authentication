@@ -57,7 +57,11 @@
                         <div class="flex flex-col lg:flex-row gap-3 w-full mb-3">
                             <div class="w-full">
                                 <x-input-label for="department" :value="__('Department')" />
-                                <x-select id="department" name="department" :options="['HR' => 'HR', 'IT' => 'IT', 'Finance' => 'Finance']" :selected="old('department')" />
+                                <x-select id="department" name="department" :options="[
+                                    'Executive Branch' => 'Executive Branch',
+                                    'Response & Recovery' => 'Response & Recovery',
+                                    'Managerial Branch' => 'Managerial Branch',
+                                ]" :selected="old('department')" />
                                 <x-input-error :messages="$errors->get('department')" class="mt-2" />
                             </div>
 

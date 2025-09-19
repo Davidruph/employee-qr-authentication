@@ -59,7 +59,11 @@
                         <div class="flex flex-col lg:flex-row gap-3 w-full mb-3">
                             <div class="w-full">
                                 <x-input-label for="department" :value="__('Department')" />
-                                <x-select id="department" name="department" :options="['HR' => 'HR', 'IT' => 'IT', 'Finance' => 'Finance']" :selected="old('department', $employee->department)" />
+                                <x-select id="department" name="department" :options="[
+                                    'Executive Branch' => 'Executive Branch',
+                                    'Response & Recovery' => 'Response & Recovery',
+                                    'Managerial Branch' => 'Managerial Branch',
+                                ]" :selected="old('department', $employee->department)" />
                                 <x-input-error :messages="$errors->get('department')" class="mt-2" />
                             </div>
 
@@ -121,7 +125,7 @@
                                 <input type="file" id="photo" name="photo"
                                     class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                 @if ($employee->photo)
-                                    <img src="{{ asset('storage/' . $employee->photo) }}"
+                                    <img src="{{ asset($employee->photo) }}"
                                         class="w-16 h-16 mt-2 object-cover rounded-full" alt="Employee Photo">
                                 @endif
                                 <x-input-error :messages="$errors->get('photo')" class="mt-2" />

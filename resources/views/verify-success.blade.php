@@ -15,7 +15,7 @@
 
         <!-- Employee Photo -->
         <div class="relative w-32 h-32 mx-auto mb-6">
-            <img src="{{ asset('storage/' . $employee->photo) }}" alt="Employee Photo"
+            <img src="{{ asset($employee->photo) }}" alt="Employee Photo"
                 class="w-32 h-32 object-cover rounded-full border-4 border-white shadow-lg">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-green-400 to-green-600 opacity-20"></div>
         </div>
